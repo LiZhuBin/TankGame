@@ -6,7 +6,6 @@ import game.util.Constant;
 import game.util.Util;
 
 public class Bullet extends GameObject {
-	double degree;
 	boolean flag=true;
 	int direction=2;
 
@@ -17,11 +16,11 @@ public class Bullet extends GameObject {
 		this.speed=Constant.BULLET_SPEED;
 		
 	}
-	public void draw(Tank a,Graphics g){
+	public void draw(Graphics g,Tank a){
 		if(flag){ 
 			this.x=a.x+Constant.TANK_WINTH/2-10;
 			this.y=a.y+Constant.TANK_HEIGHT/2-10;
-			this.direction=a.direction;
+			this.direction=a.Direction();
 		   flag=false;
 		}
 		if(direction==0){
@@ -34,5 +33,12 @@ public class Bullet extends GameObject {
 			this.y+=speed;
 		}
 				g.drawImage(img,(int)x,(int)y,null);
+			if(this.y<0){
+				a.fire=false;
+			}
+			
+			
+			
+		}
 	}
-}
+	

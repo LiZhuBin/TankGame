@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import game.util.Util;
 
 public class Tank_2 extends Tank{
-
+	   
 	public Tank_2(int Tank_x, int Tank_y, String Tank_path) {
 		super(Tank_x, Tank_y, Tank_path);
 		// TODO Auto-generated constructor stub
@@ -19,22 +19,22 @@ public class Tank_2 extends Tank{
 		if(left){
 			x-=speed;
 			
-		Tank_path="images/enemy2L.gif";
+		Tank_path="images2/enemyL.gif";
 		img=Util.getImage(Tank_path);
 		}
 		if(right){
 			x+=speed;
-		Tank_path="images/enemy2R.gif";
+		Tank_path="images2/enemyR.gif";
 		img=Util.getImage(Tank_path);
 		}
 		if(up){
 			y-=speed;
-			Tank_path="images/enemy2U.gif";
+			Tank_path="images2/enemyU.gif";
 			img=Util.getImage(Tank_path);
 		}
 		if(down){
 			y+=speed;
-			Tank_path="images/enemy2D.gif";
+			Tank_path="images2/enemyD.gif";
 			img=Util.getImage(Tank_path);
 		}
 		
@@ -56,7 +56,7 @@ public class Tank_2 extends Tank{
 					up=true;
 					break;
 				case KeyEvent.VK_F:
-					fire=true;
+					this.fire=true;
 					break;
 			}
 		}

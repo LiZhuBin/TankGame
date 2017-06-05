@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import game.util.Util;
 
 public class Tank_1 extends Tank{
-
+	
 	public Tank_1(int Tank_x, int Tank_y, String Tank_path) {
 		super(Tank_x, Tank_y, Tank_path);
 		// TODO Auto-generated constructor stub
@@ -55,7 +55,7 @@ public class Tank_1 extends Tank{
 					up=true;
 					break;
 				case KeyEvent.VK_SPACE:
-					fire=true;
+					this.fire=true;
 					break;
 			}
 		}
@@ -76,6 +76,7 @@ public class Tank_1 extends Tank{
 			case KeyEvent.VK_UP:
 				up=false;
 				break;
+			
 		}
 		}
 	
