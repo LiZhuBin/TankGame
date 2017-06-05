@@ -18,6 +18,7 @@ public class Tank_2 extends Tank{
 		super.Move();
 		if(left){
 			x-=speed;
+			
 		Tank_path="images/enemy2L.gif";
 		img=Util.getImage(Tank_path);
 		}

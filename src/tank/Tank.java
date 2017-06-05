@@ -8,13 +8,13 @@ import game.util.Util;
 public class Tank extends GameObject {
 	boolean left,right,up,down;
 	static boolean fire=false;
+	boolean fristDirection1=true;
 	boolean live=true;
-	String Tank_path=null;
-	int direction=0;
+	String Tank_path="images/enemy1U.gif";
+	int direction=2;
 	public Rectangle getRect(){
 		return new Rectangle((int)x,(int)y,width,height);		
 	}
-	
 	public void draw(Graphics g){//»­Ì¹
 		if(true){
 		g.drawImage(img,(int)x,(int)y,width,height, null);
@@ -51,35 +51,6 @@ public class Tank extends GameObject {
 	public void Move(){}
 	public static void main(String[] args) {
 	}
-	class Bullet extends GameObject {
-
-		double degree;
-		boolean flag=true;
-		public Bullet(String path) {
-			this.img=Util.getImage(path);
-			this.x=Tank.this.x+Constant.TANK_WINTH/2-20;
-			this.y=Tank.this.y-30;
-			this.height=Constant.BULLET_HEIGHT;
-			this.width=Constant.BULLET_WINTH;
-			this.speed=Constant.BULLET_SPEED;
-		}
-		public void draw(Graphics g){
-			if(flag){ 
-				this.x=Tank.this.x+Constant.TANK_WINTH/2-10;
-				this.y=Tank.this.y+Constant.TANK_HEIGHT/2-10;
-			   flag=false;
-			}
-			if(direction==0){
-				this.x-=speed;
-			}else if(direction==1){
-				this.x+=speed;
-			}else if(direction==2){
-			this.y-=speed;
-			}else if(direction==3){
-				this.y+=speed;
-			}
-					g.drawImage(img,(int)x,(int)y,null);
-		}
-}
 	
 }
+	
