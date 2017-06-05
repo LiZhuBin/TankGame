@@ -6,10 +6,11 @@ import java.awt.event.KeyEvent;
 import game.util.Util;
 
 public class Tank_2 extends Tank{
-	   
+	
 	public Tank_2(int Tank_x, int Tank_y, String Tank_path) {
 		super(Tank_x, Tank_y, Tank_path);
 		// TODO Auto-generated constructor stub
+		this.num=2;
 	}
 
 	@Override
@@ -18,23 +19,22 @@ public class Tank_2 extends Tank{
 		super.Move();
 		if(left){
 			x-=speed;
-			
-		Tank_path="images2/enemyL.gif";
+		Tank_path="images/enemy2L.gif";
 		img=Util.getImage(Tank_path);
 		}
 		if(right){
 			x+=speed;
-		Tank_path="images2/enemyR.gif";
+		Tank_path="images/enemy2R.gif";
 		img=Util.getImage(Tank_path);
 		}
 		if(up){
 			y-=speed;
-			Tank_path="images2/enemyU.gif";
+			Tank_path="images/enemy2U.gif";
 			img=Util.getImage(Tank_path);
 		}
 		if(down){
 			y+=speed;
-			Tank_path="images2/enemyD.gif";
+			Tank_path="images/enemy2D.gif";
 			img=Util.getImage(Tank_path);
 		}
 		

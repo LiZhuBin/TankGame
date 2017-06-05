@@ -10,6 +10,7 @@ public class Tank_1 extends Tank{
 	public Tank_1(int Tank_x, int Tank_y, String Tank_path) {
 		super(Tank_x, Tank_y, Tank_path);
 		// TODO Auto-generated constructor stub
+		this.num=1;
 	}
 
 	@Override
