@@ -11,7 +11,8 @@ public class Tank extends Bullet {
 	boolean fristDirection1=true;
 	String Tank_path=null;
 	double old_x,old_y;
-	int num;
+	int num=0;
+	String TankPackagePath=null;
 	public void draw(Graphics g){//画坦
 		super.draw(g);
 		Move();
@@ -22,23 +23,14 @@ public class Tank extends Bullet {
 	public void setLive(boolean live) {
 		this.live = live;
 	}
-	public int Direction(){
-		if(Tank_path=="images/enemy1U.gif"||Tank_path=="images/enemy2U.gif"){
-			return 2;
-		}else if(Tank_path=="images/enemy1L.gif"||Tank_path=="images/enemy2L.gif"){
-			return 0;
-		}else if(Tank_path=="images/enemy1R.gif"||Tank_path=="images/enemy2R.gif"){
-		 return 1;
-		}else if(Tank_path=="images/enemy1D.gif"||Tank_path=="images/enemy2D.gif"){
-			return 3;
-		}
-		return 2;
-	}
-	public Tank(int Tank_x,int Tank_y,String Tank_path){    //构造函数
+	public Tank(int Tank_x,int Tank_y,String TankPackagePath,int modelNum){    //构造函数
 		super();
 		this.x=Tank_x;
 		this.y=Tank_y;
+	this.TankPackagePath=TankPackagePath;
+		Tank_path=TankPackagePath+"/enemyU.gif";
 		this.img=Util.getImage(Tank_path);
+	//	this.modelNum=modelNum;
 		this.width=Constant.TANK_WINTH;
 		this.height=Constant.TANK_HEIGHT;
 		this.speed=Constant.TANK_SPEED;
@@ -53,6 +45,31 @@ public class Tank extends Bullet {
 		}
 		old_x=x;
 		old_y=y;
+		if(left){
+			x-=speed;
+		Tank_path=TankPackagePath+"/enemyL.gif";
+		img=Util.getImage(Tank_path);
+		direction="left";
+		}
+		if(right){
+			x+=speed;
+		Tank_path=TankPackagePath+"/enemyR.gif";
+		img=Util.getImage(Tank_path);
+		direction="right";
+		}
+		if(up){
+			y-=speed;
+			Tank_path=TankPackagePath+"/enemyU.gif";
+			img=Util.getImage(Tank_path);
+			direction="up";
+		}
+		if(down){
+			y+=speed;
+			Tank_path=TankPackagePath+"/enemyD.gif";
+			img=Util.getImage(Tank_path);
+			direction="down";
+		}
 	}
+	
 }
 	

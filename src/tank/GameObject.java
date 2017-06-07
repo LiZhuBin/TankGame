@@ -11,6 +11,7 @@ public class GameObject extends KeyMonitor{
 	 int speed=10;
 	 boolean live=true;
 	  Image img=null;
+	  String direction="up";
 	  public Rectangle getRect(){
 			return new Rectangle((int)x,(int)y,width,height);		
 		}
