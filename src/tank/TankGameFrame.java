@@ -15,62 +15,53 @@ public class TankGameFrame extends MyFrame	{
 	long startTime=0,endTime =0;
 	int bulletNum=0;
 	long time=0;
-	boolean peng=false;
 	Image bg=Util.getImage("images/bg.jpg");
 	Tank p=new Tank_1(600,400,"images/enemy1U.gif");
 	Tank p1=new Tank_2(100,400,"images/enemy2U.gif");
+	Wall w=new Wall(300,400,"walls/walls.gif");
 	Bullet b=new Bullet();
 	Bullet b1=new Bullet();
 	ArrayList<Bullet> bullets = new ArrayList<>();
 	public void paint(Graphics g) {
 		g.drawImage(bg,0,0,Constant.GAME_WIDTH,Constant.GAME_HEIGHT,null);
 		if(p.live){
-		drawAll(g,p);
+		drawAll(g,p,b,w);
 		}else{
 			DrawWord(g,"GAME OVER",50,100,100,Color.BLUE);
 		}
 		if(p1.live){
-		drawAll(g,p1);
+		drawAll(g,p1,b1,w);
 		}else{
 			DrawWord(g,"赢了!",50, 100,100,Color.BLUE);
 		}
-		if(p.getRect().intersects(b1.getRect()))
-		{
-			boolean peng=true;
-			if(peng){
-			p.setLive(false);
-		}
-		}if(p1.getRect().intersects(b.getRect())){
-			{
-				boolean peng=true;
-				if(peng){
-				p1.setLive(false);
-			}
-		}
-		}
+		JudgePeng(p,b1,w);
+		JudgePeng(p1,b,w);
 	}
-	public void drawAll(Graphics g,Tank p){   //画一 坦克
-		p.draw(g);
-		if(p.fire){
-			
+	public void drawAll(Graphics g,Tank t,Bullet b,Wall w){   //画一 坦克
+		t.draw(g);
+		if(t.fire){
 			bullets.add(new Bullet());
 			if(fristDirection1){
-				bullets.get(bulletNum).direction=p.Direction();
+				bullets.get(bulletNum).direction=t.Direction();
 			fristDirection1=false;
 			}
-			if(p.live){
-				if(p.num==1){
+			if(t.live){
         	b.draw(g,p);
-				}
-				if(p.num==2){
-					b1.draw(g,p);
-				}
 			}
-        	//
         	bulletNum++;
 		}
-		//b.flag=true;
-		
+		if(w.live){
+			w.draw(g);
+		}
+	}
+	public void JudgePeng(Tank t,Bullet b,Wall w){
+		if(t.getRect().intersects(b.getRect()))
+		{
+			t.live=false;
+		}
+		if(b.getRect().intersects(w.getRect())){
+			w.live=false;
+		}
 	}
 	public void DrawWord(Graphics g,String str,int size,int x,int y,Color color){
 		Color c=g.getColor();

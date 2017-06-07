@@ -13,4 +13,8 @@ public class Constant {
 	public static final int BULLET_WINTH=10;
 	public static final int BULLET_HEIGHT=20;
 	public static final int BULLET_SPEED=10;
+	public static final int BORDER_x1=Constant.Location_x;
+	public static final int BORDER_x2=Constant.Location_x+Constant.GAME_WIDTH-Constant.TANK_WINTH;
+	public static final int BORDER_y1=Constant.Location_y;
+	public static final int BORDER_y2=Constant.Location_y+Constant.GAME_HEIGHT-Constant.TANK_HEIGHT;
 }

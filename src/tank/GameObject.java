@@ -9,6 +9,7 @@ public class GameObject extends KeyMonitor{
 	public double x,y;
 	 int width,height;
 	 int speed=10;
+	 boolean live=true;
 	  Image img=null;
 	  public Rectangle getRect(){
 			return new Rectangle((int)x,(int)y,width,height);		

@@ -9,9 +9,8 @@ public class Tank extends Bullet {
 	boolean left,right,up,down;
 	public boolean fire=false;
 	boolean fristDirection1=true;
-	boolean live=true;
 	String Tank_path=null;
-	//int direction=2;
+	double old_x,old_y;
 	int num;
 	public void draw(Graphics g){//»­Ì¹
 		super.draw(g);
@@ -46,19 +45,14 @@ public class Tank extends Bullet {
 		// TODO Auto-generated constructor stub
 	}
 	public void Move(){
-		if(x<Constant.Location_x){
-			x=Constant.Location_x;
+		if(x<Constant.BORDER_x1||x>Constant.BORDER_x2){
+			x=old_x;
 		}
-		if(x>Constant.Location_x+Constant.GAME_WIDTH-Constant.TANK_WINTH){
-			x=Constant.Location_x+Constant.GAME_WIDTH-Constant.TANK_WINTH;
+		if(y<Constant.BORDER_y1||y>Constant.BORDER_y2){
+			y=old_y;
 		}
-	   if(y<Constant.Location_x){
-		   y=Constant.Location_y;
-	   }
-	   if(y>Constant.Location_y+Constant.GAME_HEIGHT-Constant.TANK_HEIGHT){
-		   y=Constant.Location_y+Constant.GAME_HEIGHT-Constant.TANK_HEIGHT;
-		}
+		old_x=x;
+		old_y=y;
 	}
-	
 }
 	
