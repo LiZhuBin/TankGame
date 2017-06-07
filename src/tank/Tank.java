@@ -10,13 +10,15 @@ public class Tank extends Bullet {
 	public boolean fire=false;
 	boolean fristDirection1=true;
 	String Tank_path=null;
-	double old_x,old_y;
+	boolean flag1=false;
 	int num=0;
 	String TankPackagePath=null;
 	public void draw(Graphics g){//画坦
 		super.draw(g);
 		Move();
+		
 	}
+	
 	public boolean isLive() {
 		return live;
 	}
@@ -30,21 +32,26 @@ public class Tank extends Bullet {
 	this.TankPackagePath=TankPackagePath;
 		Tank_path=TankPackagePath+"/enemyU.gif";
 		this.img=Util.getImage(Tank_path);
-	//	this.modelNum=modelNum;
 		this.width=Constant.TANK_WINTH;
 		this.height=Constant.TANK_HEIGHT;
 		this.speed=Constant.TANK_SPEED;
-		// TODO Auto-generated constructor stub
 	}
-	public void Move(){
-		if(x<Constant.BORDER_x1||x>Constant.BORDER_x2){
+	public void Blast(Graphics g){
+			for(int i=1;i<9;i++){
+				g.drawImage(Util.getImage("blasts/blast"+i+".gif"),(int)x,(int)y,width,height, null);
+			}
+	}
+	public void Move(){                     
+		//如果在窗口边界或与物体碰撞，则返回原来位置--不穿透
+		if(x<Constant.BORDER_x1||x>Constant.BORDER_x2||flag1){
 			x=old_x;
 		}
-		if(y<Constant.BORDER_y1||y>Constant.BORDER_y2){
+		if(y<Constant.BORDER_y1||y>Constant.BORDER_y2||flag1){
 			y=old_y;
 		}
 		old_x=x;
 		old_y=y;
+		flag1=false;
 		if(left){
 			x-=speed;
 		Tank_path=TankPackagePath+"/enemyL.gif";

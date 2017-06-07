@@ -18,6 +18,7 @@ public class Bullet extends GameObject {
 		
 	}
 	public void draw(Graphics g,Tank a){
+		
 		if(flag){ 
 			this.x=a.x+Constant.TANK_WINTH/2-10;
 			this.y=a.y+Constant.TANK_HEIGHT/2-10;
@@ -33,12 +34,12 @@ public class Bullet extends GameObject {
 		}else if(direction=="down"){
 			this.y+=speed;
 		}
+		
 				g.drawImage(img,(int)x,(int)y,null);
 			if(this.y<0){
 				a.fire=false;
 			}
-			
-			
-		}
+		
+	}
 	}
 	
