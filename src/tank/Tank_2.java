@@ -6,11 +6,9 @@ import java.awt.event.KeyEvent;
 import game.util.Util;
 
 public class Tank_2 extends Tank{
-	
-
-
 	public Tank_2(int Tank_x, int Tank_y, String TankPackagePath, int modelNum) {
 		super(Tank_x, Tank_y, TankPackagePath, modelNum);
+		this.num=2;
 		// TODO Auto-generated constructor stub
 	}
 		@Override

@@ -21,5 +21,4 @@ public class GameObject extends KeyMonitor{
 			g.drawImage(img,(int)x,(int)y,width,height, null);
 			}
 		}
-
 }

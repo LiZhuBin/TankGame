@@ -26,7 +26,7 @@ public class Tank extends Bullet {
 		this.live = live;
 	}
 	public Tank(int Tank_x,int Tank_y,String TankPackagePath,int modelNum){    //构造函数
-		super();
+		super(TankPackagePath);
 		this.x=Tank_x;
 		this.y=Tank_y;
 	this.TankPackagePath=TankPackagePath;
@@ -39,38 +39,34 @@ public class Tank extends Bullet {
 	public void Blast(Graphics g){
 			for(int i=1;i<9;i++){
 				g.drawImage(Util.getImage("blasts/blast"+i+".gif"),(int)x,(int)y,width,height, null);
+			
 			}
 	}
 	public void Move(){                     
 		//如果在窗口边界或与物体碰撞，则返回原来位置--不穿透
-		if(x<Constant.BORDER_x1||x>Constant.BORDER_x2||flag1){
+		if(x<Constant.BORDER_x1||x>Constant.BORDER_x2||flag1||y<Constant.BORDER_y1||y>Constant.BORDER_y2){
 			x=old_x;
-		}
-		if(y<Constant.BORDER_y1||y>Constant.BORDER_y2||flag1){
 			y=old_y;
 		}
 		old_x=x;
 		old_y=y;
 		flag1=false;
-		if(left){
+		if(left){              //子弹移动，记录此时坦克的方向
 			x-=speed;
 		Tank_path=TankPackagePath+"/enemyL.gif";
 		img=Util.getImage(Tank_path);
 		direction="left";
-		}
-		if(right){
+		}else if(right){
 			x+=speed;
 		Tank_path=TankPackagePath+"/enemyR.gif";
 		img=Util.getImage(Tank_path);
 		direction="right";
-		}
-		if(up){
+		}else if(up){
 			y-=speed;
 			Tank_path=TankPackagePath+"/enemyU.gif";
 			img=Util.getImage(Tank_path);
 			direction="up";
-		}
-		if(down){
+		}else if(down){
 			y+=speed;
 			Tank_path=TankPackagePath+"/enemyD.gif";
 			img=Util.getImage(Tank_path);

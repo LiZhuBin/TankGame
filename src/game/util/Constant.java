@@ -1,7 +1,6 @@
 package game.util;
 
 public class Constant {
-	public static final String BULLET_PATH="images/bullet.gif";
 	public static final int GAME_WIDTH=900;
 	public static final int GAME_HEIGHT=800;
 	public static final int Location_x=0;

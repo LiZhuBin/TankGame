@@ -7,15 +7,15 @@ import game.util.Util;
 
 public class Bullet extends GameObject {
 	 private boolean flag=true;
+	 public boolean stop=false;
 	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
-	public Bullet() {
-		this.img=Util.getImage(Constant.BULLET_PATH);
+	public Bullet(String bulletPath) {
+		this.img=Util.getImage(bulletPath);
 		this.height=Constant.BULLET_HEIGHT;
 		this.width=Constant.BULLET_WINTH;
 		this.speed=Constant.BULLET_SPEED;
-		
 	}
 	public void draw(Graphics g,Tank a){
 		
@@ -34,11 +34,10 @@ public class Bullet extends GameObject {
 		}else if(direction=="down"){
 			this.y+=speed;
 		}
-		
 				g.drawImage(img,(int)x,(int)y,null);
-			if(this.y<0){
-				a.fire=false;
-			}
+				if(x<Constant.BORDER_x1||x>Constant.BORDER_x2||y<Constant.BORDER_y1||y>Constant.BORDER_y2){
+					a.fire=false;
+				}
 		
 	}
 	}

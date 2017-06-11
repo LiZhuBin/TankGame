@@ -9,6 +9,10 @@ public class Tank_1 extends Tank{
 	
 		public Tank_1(int Tank_x, int Tank_y, String TankPackagePath, int modelNum) {
 		super(Tank_x, Tank_y, TankPackagePath, modelNum);
+		String Tank_path=TankPackagePath+"/enemyD.gif";
+		  direction="down";
+		this.img=Util.getImage(Tank_path);
+		this.num=1;
 		// TODO Auto-generated constructor stub
 	}
 
