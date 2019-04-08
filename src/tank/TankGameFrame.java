@@ -19,10 +19,10 @@ public class TankGameFrame extends MyFrame	{
 	String time=null;
 	String nowTime=null;
 	Image bg=Util.getImage("images/bg.jpg");      
-	Tank p=new Tank_1((Constant.BORDER_x2-Constant.BORDER_x1)/2,(Constant.BORDER_y2-Constant.BORDER_y1)/10,"tankImages1",1);
-	Tank p1=new Tank_2((Constant.BORDER_x2-Constant.BORDER_x1)/2,(Constant.BORDER_y2-Constant.BORDER_y1)/10*9,"tankImages2",2);
-	Bullet b=new Bullet("bullets/bullet1.gif");
-	Bullet b1=new Bullet("bullets/bullet2.gif");
+	Tank p=new Tank_1((Constant.BORDER_x2-Constant.BORDER_x1)/2,(Constant.BORDER_y2-Constant.BORDER_y1)/10, "images/tankImages1",1);
+	Tank p1=new Tank_2((Constant.BORDER_x2-Constant.BORDER_x1)/2,(Constant.BORDER_y2-Constant.BORDER_y1)/10*9, "images/tankImages2",2);
+	Bullet b=new Bullet("images/bullets/bullet1.gif");
+	Bullet b1=new Bullet("images/bullets/bullet2.gif");
 	static ArrayList<Wall> walls = new ArrayList<>();
 	static ArrayList<Bullet> bullets = new ArrayList<>();
 	public void paint(Graphics g) {
@@ -59,10 +59,9 @@ public class TankGameFrame extends MyFrame	{
 			if(t.getRect().intersects(walls.get(i).getRect())){
 				t.flag1=true;
 			}
-			if(walls.get(i).live==true){
+			if(walls.get(i).live){
 			walls.get(i).draw(g);
-			}
-			if(walls.get(i).live==false){
+			}else{
 				walls.remove(walls.get(i));
 			}
 			
@@ -95,14 +94,14 @@ public class TankGameFrame extends MyFrame	{
 		}
 		for(int i=0;i<walls.size();i++){
 		if(b.getRect().intersects(walls.get(i).getRect())){
-			if(walls.get(i).wallPath=="walls/softwall.gif"){         //×Óµ¯»÷ÈõÇ½--´©Í¸£¬Ç½ÏûÊ§
+			if(walls.get(i).wallPath.equals("images/walls/softwall.gif")){         //×Óµ¯»÷ÈõÇ½--´©Í¸£¬Ç½ÏûÊ§
 			walls.get(i).live=false;
 			}else{                                        //×Óµ¯»÷Ó²Ç½--ÎÞ·¨´©Í¸¡¢Ç½²»ÏûÊ§
 				b2.live=false;
 				b2.stop=true;
 			}
 		}
-		if(walls.get(i).live==false){
+		if(!walls.get(i).live){
 				walls.remove(walls.get(i));
 		}
 		for(int j=i+1;j<walls.size();j++){
@@ -124,13 +123,13 @@ public class TankGameFrame extends MyFrame	{
 	public static void main(String[] args) throws Exception{
 		for(int i=0;i<20;i++){          //³õÊ¼Ç½
 			if(i%5==1){
-				Wall w =new Wall(i*40,i*40,"walls/hardwall.gif");
-				Wall w2 =new Wall(Constant.BORDER_x2-i*40,i*40,"walls/hardwall.gif");
+				Wall w =new Wall(i*40,i*40, "images/walls/hardwall.gif");
+				Wall w2 =new Wall(Constant.BORDER_x2-i*40,i*40, "images/walls/hardwall.gif");
 				walls.add(w);
 				walls.add(w2);
 			}else{
-			Wall w=new Wall(i*40,i*40,"walls/softwall.gif");
-			Wall w2 =new Wall(Constant.BORDER_x2-i*40,i*40,"walls/softwall.gif");
+			Wall w=new Wall(i*40,i*40, "images/walls/softwall.gif");
+			Wall w2 =new Wall(Constant.BORDER_x2-i*40,i*40, "images/walls/softwall.gif");
 			walls.add(w);
 			walls.add(w2);
 			}

@@ -1,7 +1,6 @@
 package tank;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
 import game.util.Constant;
 import game.util.Util;
@@ -38,7 +37,7 @@ public class Tank extends Bullet {
 	}
 	public void Blast(Graphics g){
 			for(int i=1;i<9;i++){
-				g.drawImage(Util.getImage("blasts/blast"+i+".gif"),(int)x,(int)y,width,height, null);
+				g.drawImage(Util.getImage("images/blasts/blast" +i+".gif"),(int)x,(int)y,width,height, null);
 			
 			}
 	}
