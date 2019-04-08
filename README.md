@@ -25,8 +25,7 @@
 **三、类**
 
        ①MyFrame类:继承Frame类:加载界面、消除闪烁；
-       ②Util类;把String类型的路径path转化为Image类型；
-       
+       ②Util类;把String类型的路径path转化为Image类型
        ③GameObject类：物品类，包含物品的基本属性：位置(x,y)、大小(height、width)、       		     生命(live)、方向（direction)、速度(speed);
        ④Tank类：父类坦克的基本属性，实现坦克绘画(draw)、坦克爆炸（blast)、坦克移动			（move)等功能；
        ⑤Tank1、Tank2类：继承Tank类：实现键盘键控制坦克的移动；
